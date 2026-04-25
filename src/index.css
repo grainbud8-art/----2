@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #25B183;
+  --color-primary-container: #E6F7F0;
+  --color-on-primary-container: #0B3B2B;
+  
+  --color-secondary: #1D8B6D;
+  --color-secondary-container: #C8E6C9;
+  --color-on-secondary-container: #004D40;
+  
+  --color-tertiary: #5a5f60;
+  --color-tertiary-fixed: #dee3e3;
+  --color-on-tertiary-fixed: #171d1d;
+  
+  --color-error: #FF4B3A;
+  --color-error-container: #FFF0EE;
+  --color-on-error-container: #661008;
+  
+  --color-background: #fcf9f8;
+  --color-surface: #fcf9f8;
+  --color-surface-container: #f0eded;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container-high: #eae7e7;
+  --color-surface-container-highest: #e5e2e1;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-on-surface: #1c1b1b;
+  --color-on-surface-variant: #3c4946;
+  --color-outline: #6c7a76;
+  --color-outline-variant: #bbcac5;
+
+  --spacing-touch-target-min: 60px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 20px;
+  --spacing-stack-sm: 12px;
+  --spacing-stack-md: 24px;
+  --spacing-stack-lg: 40px;
+  
+  --radius-xl: 1.5rem;
+  --radius-card: 1.5rem;
+  
+  --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "云箱 LupusCare",
+  "description": "专为老年人设计的医疗健康管理应用，提供用药提醒、就诊记录及AI辅助分析。",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["Health Tracking", "AI Analysis", "Medication Management"]
+}
