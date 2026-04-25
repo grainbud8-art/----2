@@ -9,7 +9,6 @@ interface LayoutProps {
   children: ReactNode;
   title: string;
   showBack?: boolean;
-  showUser?: boolean;
   showNotifications?: boolean;
   hideBottomNav?: boolean;
 }
@@ -18,7 +17,6 @@ export default function Layout({
   children, 
   title, 
   showBack, 
-  showUser = true, 
   showNotifications = true,
   hideBottomNav = false
 }: LayoutProps) {
@@ -29,7 +27,6 @@ export default function Layout({
       <TopAppBar 
         title={title} 
         showBack={showBack} 
-        showUser={showUser} 
         showNotifications={showNotifications} 
       />
       <main className="flex-grow pt-20 pb-36 max-w-3xl mx-auto w-full">

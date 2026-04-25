@@ -1,15 +1,19 @@
 import Layout from '../components/Layout';
-import { useNavigate } from 'react-router-dom';
-import { PlusCircle, Pill, CheckCircle, Calendar, ChevronRight, Package, Settings, AlertTriangle } from 'lucide-react';
+import FamilyLayout from '../components/FamilyLayout';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { PlusCircle, Pill, CheckCircle, Calendar, ChevronRight, Settings, AlertTriangle } from 'lucide-react';
 import { mockMedications } from '../mockData';
-import FAB from '../components/FAB';
 import { cn } from '../lib/utils';
 
 export default function Meds() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isFamily = location.pathname.startsWith('/family');
+
+  const Wrapper = isFamily ? FamilyLayout : Layout;
 
   return (
-    <Layout title="用药管理">
+    <Wrapper title="用药管理" showBack={location.state?.fromHome}>
       <div className="flex flex-col gap-8">
         <section className="flex flex-col gap-2">
           <p className="text-on-surface-variant text-lg">请按时服用您的药物，保持病情稳定。</p>
@@ -20,7 +24,7 @@ export default function Meds() {
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">今日需服药物</h2>
               <button className="text-primary font-bold flex items-center gap-2 px-4 py-2 rounded-full hover:bg-surface-container transition-colors">
-                <PlusCircle className="w-6 h-6" />
+                <PlusCircle className="w-6 h-6" fill="currentColor" strokeWidth={0} />
                 添加提醒
               </button>
             </div>
@@ -33,18 +37,18 @@ export default function Meds() {
               >
                 {med.stockRemainingDays && med.stockRemainingDays <= 5 && (
                   <div className="absolute top-0 right-0 bg-error text-white px-4 py-2 rounded-bl-2xl text-sm font-bold flex items-center gap-2">
-                    <AlertTriangle className="w-4 h-4" />
+                    <AlertTriangle className="w-4 h-4" fill="currentColor" strokeWidth={0} />
                     库存剩余{med.stockRemainingDays}天
                   </div>
                 )}
                 
                 <div className="flex items-center gap-6 mt-4">
-                  <div className="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
-                    <Pill className="w-8 h-8" />
+                  <div className="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center text-on-surface group-hover:bg-primary group-hover:text-white transition-colors">
+                    <Pill className="w-8 h-8" fill="currentColor" strokeWidth={0} />
                   </div>
                   <div className="flex flex-col">
-                    <h3 className="text-2xl font-bold leading-tight">{med.name}</h3>
-                    <span className="text-on-surface-variant text-lg">{med.dosage} · {med.frequency}</span>
+                    <h3 className="text-2xl font-black leading-tight">{med.name}</h3>
+                    <span className="text-on-surface-variant text-lg font-bold">{med.dosage} · {med.frequency}</span>
                   </div>
                 </div>
 
@@ -61,10 +65,10 @@ export default function Meds() {
 
                 <button 
                   onClick={(e) => { e.stopPropagation(); }}
-                  className="w-full h-16 bg-primary-container text-white font-bold rounded-2xl flex items-center justify-center gap-3 active:bg-primary transition-colors"
+                  className="w-full h-16 bg-primary text-white font-black rounded-[24px] flex items-center justify-center gap-4 active:scale-95 transition-all shadow-lg shadow-primary/20"
                 >
-                  <CheckCircle className="w-8 h-8" />
-                  确认已服药 (今日)
+                  <CheckCircle className="w-8 h-8" fill="currentColor" strokeWidth={0} />
+                  确认已服药
                 </button>
               </div>
             ))}
@@ -74,7 +78,7 @@ export default function Meds() {
             <div className="bg-primary text-white rounded-[24px] p-6 shadow-soft flex flex-col gap-6">
               <div className="flex justify-between items-center">
                 <h3 className="text-xl font-bold">本周记录</h3>
-                <Calendar className="w-8 h-8 opacity-80" />
+                <Calendar className="w-8 h-8 opacity-80" fill="currentColor" strokeWidth={0} />
               </div>
               <div className="grid grid-cols-7 gap-2 text-center">
                 {['一', '二', '三', '四', '五', '六', '日'].map((day, i) => (
@@ -84,7 +88,7 @@ export default function Meds() {
                       "w-10 h-10 rounded-full flex items-center justify-center font-bold",
                       i < 2 ? "bg-white text-primary" : i === 2 ? "border-2 border-white" : "opacity-30"
                     )}>
-                      {i < 2 ? <CheckCircle className="w-6 h-6" /> : (12+i)}
+                      {i < 2 ? <CheckCircle className="w-6 h-6" fill="currentColor" strokeWidth={0} /> : (12+i)}
                     </div>
                   </div>
                 ))}
@@ -98,8 +102,8 @@ export default function Meds() {
             <div className="bg-white rounded-[24px] p-4 shadow-soft flex flex-col">
               <button className="w-full h-20 flex items-center justify-between px-4 hover:bg-surface-container-low rounded-xl transition-colors">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
-                    <PlusCircle className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface">
+                    <PlusCircle className="w-6 h-6" fill="currentColor" strokeWidth={0} />
                   </div>
                   <span className="text-xl font-bold">库存管理</span>
                 </div>
@@ -108,8 +112,8 @@ export default function Meds() {
               <div className="h-[1px] bg-outline-variant/30 mx-4"></div>
               <button className="w-full h-20 flex items-center justify-between px-4 hover:bg-surface-container-low rounded-xl transition-colors">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
-                    <Settings className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface">
+                    <Settings className="w-6 h-6" fill="currentColor" strokeWidth={0} />
                   </div>
                   <span className="text-xl font-bold">用药设置</span>
                 </div>
@@ -119,7 +123,6 @@ export default function Meds() {
           </div>
         </div>
       </div>
-      <FAB />
-    </Layout>
+    </Wrapper>
   );
 }

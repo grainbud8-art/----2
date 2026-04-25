@@ -11,7 +11,7 @@ export default function HealthRecordView() {
         <section className="bg-white rounded-[32px] p-6 shadow-soft flex flex-col gap-6">
             <div className="flex justify-between items-center">
                 <h3 className="text-2xl font-black flex items-center gap-3">
-                    <Thermometer className="text-primary w-8 h-8" />
+                    <Thermometer className="text-on-surface w-8 h-8" fill="currentColor" strokeWidth={0} />
                     近七日体温
                 </h3>
             </div>

@@ -1,6 +1,7 @@
 import Layout from '../components/Layout';
+import FamilyLayout from '../components/FamilyLayout';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Camera, Mic, CheckCircle, History, ArrowLeft } from 'lucide-react';
+import { Camera, Mic, CheckCircle, History } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function Upload() {
@@ -8,8 +9,10 @@ export default function Upload() {
   const location = useLocation();
   const isFamily = location.pathname.startsWith('/family');
 
+  const Wrapper = isFamily ? FamilyLayout : Layout;
+
   return (
-    <Layout title="上传新文档" showBack>
+    <Wrapper title="上传新文档" showBack>
       <div className="flex flex-col gap-8">
         <div className="text-center">
           <p className="text-xl font-bold text-on-surface-variant">请把纸放平，拍清楚</p>
@@ -60,6 +63,6 @@ export default function Upload() {
           </button>
         </div>
       </div>
-    </Layout>
+    </Wrapper>
   );
 }

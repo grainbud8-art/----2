@@ -12,7 +12,7 @@ export default function HealthRecordAdd() {
         <section className="bg-white rounded-[32px] p-8 shadow-soft flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <label className="text-2xl font-bold flex items-center gap-3">
-              <Thermometer className="w-8 h-8 text-primary" />
+              <Thermometer className="w-8 h-8 text-on-surface" fill="currentColor" strokeWidth={0} />
               您的体温是多少？
             </label>
             <div className="flex items-center gap-4">
@@ -28,7 +28,7 @@ export default function HealthRecordAdd() {
 
           <div className="flex flex-col gap-4">
             <label className="text-2xl font-bold flex items-center gap-3">
-              <Heart className="w-8 h-8 text-error" />
+              <Heart className="w-8 h-8 text-on-surface" fill="currentColor" strokeWidth={0} />
               您的心率是多少？
             </label>
             <div className="flex items-center gap-4">
@@ -43,7 +43,7 @@ export default function HealthRecordAdd() {
 
           <div className="flex flex-col gap-4">
             <label className="text-2xl font-bold flex items-center gap-3">
-              <Droplets className="w-8 h-8 text-secondary" />
+              <Droplets className="w-8 h-8 text-on-surface" fill="currentColor" strokeWidth={0} />
               其他症状 (可多选)
             </label>
             <div className="grid grid-cols-2 gap-4">
@@ -60,15 +60,15 @@ export default function HealthRecordAdd() {
         </section>
 
         <button className="w-full h-24 bg-primary-container text-white rounded-4xl shadow-soft flex flex-col items-center justify-center gap-2 active:scale-95 transition-transform">
-           <Mic className="w-8 h-8" />
-           <span className="text-xl font-bold">语音快速录入</span>
+           <Mic className="w-8 h-8" fill="currentColor" strokeWidth={0} />
+           <span className="text-xl font-bold text-on-primary-container">语音快速录入</span>
         </button>
 
         <button 
             onClick={() => navigate('/health/record/view')}
             className="w-full h-24 bg-primary text-white rounded-4xl shadow-xl flex items-center justify-center gap-4 active:scale-95 transition-transform"
         >
-            <CheckCircle className="w-10 h-10" />
+            <CheckCircle className="w-10 h-10" fill="currentColor" strokeWidth={0} />
             <span className="text-3xl font-black">保存记录</span>
         </button>
       </div>

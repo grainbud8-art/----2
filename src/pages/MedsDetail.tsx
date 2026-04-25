@@ -29,8 +29,8 @@ export default function MedsDetail() {
 
         <section className="flex flex-col gap-6">
           <div className="bg-white rounded-[32px] p-6 shadow-soft flex items-start gap-6">
-            <div className="bg-primary-container/10 p-4 rounded-2xl text-primary shrink-0">
-              <Activity className="w-10 h-10" />
+            <div className="bg-primary-container/10 p-4 rounded-2xl text-on-surface shrink-0">
+              <Activity className="w-10 h-10" fill="currentColor" strokeWidth={0} />
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-primary mb-2">【功效】</h3>
@@ -41,8 +41,8 @@ export default function MedsDetail() {
           </div>
 
           <div className="bg-white rounded-[32px] p-6 shadow-soft flex items-start gap-6">
-            <div className="bg-primary-container/10 p-4 rounded-2xl text-primary shrink-0">
-              <Clock className="w-10 h-10" />
+            <div className="bg-primary-container/10 p-4 rounded-2xl text-on-surface shrink-0">
+              <Clock className="w-10 h-10" fill="currentColor" strokeWidth={0} />
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-primary mb-2">【用法用量】</h3>
@@ -56,8 +56,8 @@ export default function MedsDetail() {
           </div>
 
           <div className="bg-error-container/20 border-2 border-error/10 rounded-[32px] p-6 shadow-soft flex items-start gap-6">
-            <div className="bg-white/50 p-4 rounded-2xl text-error shrink-0">
-              <AlertCircle className="w-10 h-10" />
+            <div className="bg-white/50 p-4 rounded-2xl text-on-surface shrink-0">
+              <AlertCircle className="w-10 h-10" fill="currentColor" strokeWidth={0} />
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-error mb-2">【禁忌】</h3>
@@ -71,8 +71,8 @@ export default function MedsDetail() {
         </section>
 
         <button className="w-full h-20 bg-primary text-white rounded-full flex items-center justify-center gap-4 shadow-lg active:scale-95 transition-transform">
-          <Volume2 className="w-10 h-10" />
-          <span className="text-2xl font-bold">语音播报注意事项</span>
+          <Volume2 className="w-10 h-10" fill="currentColor" strokeWidth={0} />
+          <span className="text-2xl font-bold">语音播报</span>
         </button>
       </div>
     </Layout>

@@ -1,5 +1,5 @@
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import { ArrowLeft, Share2, Calendar, Search, Speaker, History, Stethoscope, ClipboardList, Hospital, Pill } from 'lucide-react';
+import { ArrowLeft, Share2, Calendar, Search, Speaker, History, Stethoscope, ClipboardList, Hospital, Pill, Bot } from 'lucide-react';
 import { mockRecords } from '../mockData';
 import { useState } from 'react';
 import BottomNavigation from '../components/BottomNavigation';
@@ -71,7 +71,7 @@ export default function RecordDetail() {
         <section className={`rounded-[32px] p-8 shadow-soft ${isFamily ? 'bg-secondary text-white' : 'bg-surface-container-high'}`}>
           <div className="flex items-center gap-4 mb-6">
             <div className={`p-4 rounded-2xl ${isFamily ? 'bg-white/10' : 'bg-primary/10 text-primary'}`}>
-              <Bot iconClassName="w-10 h-10" />
+              <Bot className="w-10 h-10" fill="currentColor" strokeWidth={0} />
             </div>
             <div>
               <h3 className="text-2xl font-black">AI 智能解读</h3>
@@ -138,28 +138,4 @@ export default function RecordDetail() {
       <GlobalSideLabels />
     </div>
   );
-}
-
-function Bot({ iconClassName }: { iconClassName?: string }) {
-    return (
-      <svg
-        className={iconClassName}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 8V4H8" />
-        <rect width="16" height="12" x="4" y="8" rx="2" />
-        <path d="M2 14h2" />
-        <path d="M20 14h2" />
-        <path d="M15 13v2" />
-        <path d="M9 13v2" />
-      </svg>
-    );
 }

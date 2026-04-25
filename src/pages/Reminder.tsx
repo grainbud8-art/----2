@@ -102,7 +102,7 @@ export default function Reminder() {
 
       <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t-4 border-surface-container-high p-8 pb-12 flex flex-col gap-5 z-50 shadow-[0_-20px_40px_rgba(0,0,0,0.05)]">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => navigate(-1)}
           className="w-full h-24 bg-primary text-white rounded-3xl font-extrabold text-2xl flex items-center justify-center gap-4 shadow-xl hover:bg-primary-container active:scale-[0.98] transition-all"
         >
           <CheckCircle className="w-10 h-10" />

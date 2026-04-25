@@ -27,11 +27,11 @@ export default function FamilyNavigation() {
             )}
           >
             <div className={cn(
-              "p-2 px-6 rounded-2xl flex flex-col items-center",
-              isActive ? "bg-secondary-container/10" : ""
+              "p-2 px-6 rounded-2xl flex flex-col items-center transition-all",
+              isActive ? "bg-secondary/5" : ""
             )}>
-              <tab.icon className={cn("w-7 h-7 mb-1", isActive ? "fill-secondary" : "")} />
-              <span className="font-bold text-sm">{tab.name}</span>
+              <tab.icon className="w-8 h-8 mb-1" fill="currentColor" strokeWidth={0} />
+              <span className={cn("font-black text-sm", isActive ? "text-secondary" : "text-on-surface-variant")}>{tab.name}</span>
             </div>
           </button>
         );

@@ -4,7 +4,7 @@ import { mockRecords } from '../../mockData';
 
 export default function FamilyMedicineManagement() {
   return (
-    <FamilyLayout title="医疗就诊管理">
+    <FamilyLayout title="医疗就诊管理" showBack>
       <div className="flex flex-col gap-6">
         {/* Latest Medical Decision */}
         <section className="bg-primary/5 border-2 border-primary/10 rounded-3xl p-6">

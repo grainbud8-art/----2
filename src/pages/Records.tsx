@@ -1,22 +1,26 @@
 import Layout from '../components/Layout';
-import { useNavigate } from 'react-router-dom';
-import { Search, Filter, Calendar, ChevronRight, Camera, Info, History } from 'lucide-react';
+import FamilyLayout from '../components/FamilyLayout';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Search, Filter, Calendar, ChevronRight, Camera, Info } from 'lucide-react';
 import { mockRecords } from '../mockData';
-import FAB from '../components/FAB';
 
 export default function Records() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isFamily = location.pathname.startsWith('/family');
+
+  const Wrapper = isFamily ? FamilyLayout : Layout;
 
   return (
-    <Layout title="医疗文档">
+    <Wrapper title="医疗文档" showBack={location.state?.fromHome}>
       <div className="flex flex-col gap-8">
         {/* Search & Filter */}
         <section className="flex flex-col gap-6">
-          <div className="bg-white rounded-3xl p-4 shadow-soft flex items-center gap-4 h-[72px]">
-            <Search className="w-8 h-8 text-outline" />
+          <div className="bg-white rounded-[24px] p-4 shadow-soft flex items-center gap-5 h-[80px] border-2 border-transparent focus-within:border-primary transition-all">
+            <Search className="w-10 h-10 text-on-surface" fill="currentColor" strokeWidth={0} />
             <input 
-              className="border-none bg-transparent focus:ring-0 text-xl font-bold w-full placeholder:text-outline-variant" 
-              placeholder="按名称或日期搜索.." 
+              className="border-none bg-transparent focus:ring-0 text-2xl font-black w-full placeholder:text-outline-variant tracking-tighter" 
+              placeholder="搜索检查报告.." 
               type="text"
             />
           </div>
@@ -40,7 +44,7 @@ export default function Records() {
               {mockRecords.filter(r => r.date.startsWith('2023-10')).map(record => (
                 <div 
                   key={record.id}
-                  onClick={() => navigate(`/documents/detail/${record.id}`)}
+                  onClick={() => navigate(isFamily ? `/family/documents/detail-pro/${record.id}` : `/documents/detail/${record.id}`)}
                   className="bg-white rounded-[24px] p-6 shadow-soft border border-surface-container flex flex-col gap-6 hover:scale-[0.98] transition-all cursor-pointer"
                 >
                   <div className="w-full h-48 bg-surface-container rounded-2xl overflow-hidden">
@@ -53,13 +57,13 @@ export default function Records() {
                   <div className="flex flex-col gap-2">
                     <h3 className="text-2xl font-bold">{record.attachments?.[0]?.name || record.type}</h3>
                     <p className="text-on-surface-variant text-lg font-medium">{record.hospital} - {record.department}</p>
-                    <div className="flex items-center justify-between mt-2">
-                      <div className="flex items-center gap-2 text-tertiary">
-                        <Calendar className="w-6 h-6" />
-                        <span className="text-lg font-medium">{record.date}</span>
+                      <div className="flex items-center justify-between mt-2">
+                        <div className="flex items-center gap-3 text-tertiary">
+                          <Calendar className="w-6 h-6" fill="currentColor" strokeWidth={0} />
+                          <span className="text-lg font-black tracking-tighter uppercase">{record.date}</span>
+                        </div>
+                        <ChevronRight className="w-8 h-8 text-primary stroke-[4]" />
                       </div>
-                      <ChevronRight className="w-8 h-8 text-primary" />
-                    </div>
                   </div>
                 </div>
               ))}
@@ -78,26 +82,15 @@ export default function Records() {
           </div>
         </div>
         
-        {/* Floating Prompt */}
-        <div className="fixed bottom-24 left-0 right-0 px-5 pb-4 md:hidden">
-          <div className="bg-primary-container/10 border-2 border-primary-container rounded-2xl p-4 flex items-center justify-between shadow-soft backdrop-blur-sm">
-            <div className="flex items-center gap-3">
-              <div className="bg-primary-container p-2 rounded-full text-white">
-                <Info className="w-7 h-7" />
-              </div>
-              <span className="text-on-primary-container font-extrabold text-xl">点击拍照上传新材料</span>
-            </div>
-            <ChevronRight className="w-6 h-6 text-primary-container" />
-          </div>
+        {/* Floating Action Box */}
+        <div 
+          onClick={() => navigate(isFamily ? '/family/documents/upload' : '/documents/upload')}
+          className="fixed bottom-28 left-6 right-6 p-6 bg-primary-container/60 border-2 border-primary-container rounded-[24px] flex items-center justify-between shadow-2xl backdrop-blur-md cursor-pointer active:scale-95 transition-all z-50 md:hidden"
+        >
+          <span className="text-on-primary-container font-black text-2xl tracking-tight text-shadow-sm">拍照上传</span>
+          <Camera className="w-9 h-9 text-on-surface" fill="currentColor" strokeWidth={0} />
         </div>
       </div>
-      
-      <button 
-        onClick={() => navigate('/documents/upload')}
-        className="fixed bottom-36 right-6 w-20 h-20 bg-primary-container text-white rounded-full shadow-2xl flex items-center justify-center z-50 active:scale-95 transition-transform border-4 border-white"
-      >
-        <Camera className="w-10 h-10" />
-      </button>
-    </Layout>
+    </Wrapper>
   );
 }

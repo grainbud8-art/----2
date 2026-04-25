@@ -1,13 +1,17 @@
 import Layout from '../components/Layout';
-import { useNavigate } from 'react-router-dom';
+import FamilyLayout from '../components/FamilyLayout';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { User, Activity, Settings, ShieldCheck, HelpCircle, ChevronRight, Speaker, Type } from 'lucide-react';
-import FAB from '../components/FAB';
 
 export default function Profile() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isFamily = location.pathname.startsWith('/family');
+
+  const Wrapper = isFamily ? FamilyLayout : Layout;
 
   return (
-    <Layout title="个人中心">
+    <Wrapper title="个人中心">
       <div className="flex flex-col gap-6">
         {/* Profile Info */}
         <section className="bg-white rounded-[24px] shadow-soft p-6 flex items-center gap-6">
@@ -94,7 +98,7 @@ export default function Profile() {
               <div className="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center">
                 <User className="w-6 h-6" />
               </div>
-              <span className="text-xl font-bold">退出并切换视角</span>
+              <span className="text-xl font-bold">退出并切换角色</span>
             </div>
             <ChevronRight className="w-8 h-8 text-outline" />
           </button>
@@ -120,7 +124,6 @@ export default function Profile() {
           </button>
         </section>
       </div>
-      <FAB />
-    </Layout>
+    </Wrapper>
   );
 }

@@ -4,7 +4,7 @@ import { mockMedications } from '../../mockData';
 
 export default function FamilyMedicineInventory() {
   return (
-    <FamilyLayout title="用药库存管理">
+    <FamilyLayout title="用药库存管理" showBack>
       <div className="flex flex-col gap-6">
         {/* Urgent Warnings */}
         <section className="bg-error/5 border-2 border-error/10 rounded-3xl p-6">

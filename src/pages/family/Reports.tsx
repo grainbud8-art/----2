@@ -6,7 +6,7 @@ export default function FamilyReports() {
   const navigate = useNavigate();
 
   return (
-    <FamilyLayout title="专项监控周报">
+    <FamilyLayout title="专项监控周报" showBack>
       <div className="flex flex-col gap-8">
         {/* Actions (Standalone from header) */}
         <div className="flex justify-end gap-3 -mt-4">

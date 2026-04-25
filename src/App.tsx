@@ -82,6 +82,7 @@ export default function App() {
         
         {/* Old path fallbacks for backward compatibility if any internal links remain */}
         <Route path="/patient" element={<Navigate to="/home/elderly" />} />
+        <Route path="/family" element={<Navigate to="/home/family" />} />
         <Route path="/patient/meds" element={<Navigate to="/medicine" />} />
         <Route path="/patient/meds/:id" element={<Navigate to="/medicine/detail/:id" />} />
         <Route path="/patient/records" element={<Navigate to="/documents" />} />

@@ -1,14 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, User, Bell } from 'lucide-react';
+import { ArrowLeft, Bell } from 'lucide-react';
 
 interface TopAppBarProps {
   title: string;
   showBack?: boolean;
-  showUser?: boolean;
   showNotifications?: boolean;
 }
 
-export default function TopAppBar({ title, showBack, showUser, showNotifications }: TopAppBarProps) {
+export default function TopAppBar({ title, showBack, showNotifications }: TopAppBarProps) {
   const navigate = useNavigate();
 
   return (
@@ -33,14 +32,6 @@ export default function TopAppBar({ title, showBack, showUser, showNotifications
         {showNotifications && (
           <button className="w-[60px] h-[60px] flex items-center justify-center text-tertiary active:scale-95 transition-transform rounded-full hover:bg-surface-container-low">
             <Bell className="w-8 h-8" />
-          </button>
-        )}
-        {showUser && (
-          <button 
-            onClick={() => navigate('/patient/profile')}
-            className="w-[60px] h-[60px] flex items-center justify-center text-tertiary active:scale-95 transition-transform rounded-full overflow-hidden border-2 border-primary-container"
-          >
-            <User className="w-8 h-8" />
           </button>
         )}
       </div>

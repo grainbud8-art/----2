@@ -1,12 +1,17 @@
 import Layout from '../components/Layout';
-import { useNavigate } from 'react-router-dom';
+import FamilyLayout from '../components/FamilyLayout';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Calendar, Hospital, Stethoscope, Bell, Phone, Save, ChevronDown } from 'lucide-react';
 
 export default function AppointmentSetup() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isFamily = location.pathname.startsWith('/family');
+
+  const Wrapper = isFamily ? FamilyLayout : Layout;
 
   return (
-    <Layout title="就诊设置" showBack>
+    <Wrapper title={isFamily ? "就诊与方案设置" : "就诊设置"} showBack>
       <div className="flex flex-col gap-8">
         <section className="bg-white rounded-[32px] p-8 shadow-soft flex flex-col gap-8">
           <h2 className="text-3xl font-bold border-b-8 border-surface-container pb-4">就诊信息</h2>
@@ -83,6 +88,6 @@ export default function AppointmentSetup() {
           </button>
         </div>
       </div>
-    </Layout>
+    </Wrapper>
   );
 }

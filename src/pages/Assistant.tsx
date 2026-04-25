@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { X, Mic, AudioLines, FileSearch, ChartBar } from 'lucide-react';
+import { X, Mic, AudioLines, FileSearch, ChartBar, Bot } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function Assistant() {
@@ -67,7 +67,7 @@ export default function Assistant() {
           <div className="w-full bg-white border border-surface-container-high rounded-[24px] p-6 shadow-soft flex flex-col gap-4 mt-auto">
             <div className="flex items-center gap-4">
                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white text-3xl font-black">
-                  <Bot />
+                  <Bot fill="currentColor" strokeWidth={0} />
                </div>
                <span className="font-bold text-xl text-primary">康健助手</span>
             </div>
@@ -87,28 +87,5 @@ export default function Assistant() {
         </button>
       </div>
     </div>
-  );
-}
-
-function Bot() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 8V4H8" />
-      <rect width="16" height="12" x="4" y="8" rx="2" />
-      <path d="M2 14h2" />
-      <path d="M20 14h2" />
-      <path d="M15 13v2" />
-      <path d="M9 13v2" />
-    </svg>
   );
 }
