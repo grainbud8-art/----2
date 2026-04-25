@@ -25,7 +25,7 @@ export default function FamilyMedicineManagement() {
             </div>
             <h3 className="text-lg font-bold mb-2">省级人民医院 · 风湿免疫科</h3>
             <p className="text-on-surface-variant text-sm mb-4 leading-relaxed">
-              医生建议维持目前波尼松剂量，增加一份钙剂。请确认为【张大爷】更新用药提醒。
+              医生建议维持目前波尼松剂量，增加一份钙剂。请确认为【对对】更新用药提醒。
             </p>
             <div className="flex gap-3 mt-4">
               <button className="flex-1 h-12 bg-primary text-white rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all">

@@ -9,7 +9,7 @@ export default function BottomNavigation() {
   const tabs = [
     { name: '首页', icon: Home, path: '/home/elderly' },
     { name: '医药', icon: Pill, path: '/medicine' },
-    { name: '记录', icon: FileText, path: '/documents' },
+    { name: '文档', icon: FileText, path: '/documents' },
     { name: '我的', icon: User, path: '/profile' },
   ];
 

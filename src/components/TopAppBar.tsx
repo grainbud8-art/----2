@@ -30,7 +30,10 @@ export default function TopAppBar({ title, showBack, showNotifications }: TopApp
       
       <div className="flex items-center gap-2">
         {showNotifications && (
-          <button className="w-[60px] h-[60px] flex items-center justify-center text-tertiary active:scale-95 transition-transform rounded-full hover:bg-surface-container-low">
+          <button 
+            onClick={() => window.dispatchEvent(new CustomEvent('show-demo-reminder'))}
+            className="w-[60px] h-[60px] flex items-center justify-center text-tertiary active:scale-95 transition-transform rounded-full hover:bg-surface-container-low"
+          >
             <Bell className="w-8 h-8" />
           </button>
         )}

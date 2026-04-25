@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Meds from './pages/Meds';
 import MedsDetail from './pages/MedsDetail';
 import Records from './pages/Records';
+import Documents from './pages/Documents';
 import RecordDetail from './pages/RecordDetail';
 import Upload from './pages/Upload';
 import Profile from './pages/Profile';
@@ -32,12 +33,13 @@ export default function App() {
         <Route path="/ai-assistant/chat" element={<Assistant />} />
         <Route path="/medicine" element={<Meds />} />
         <Route path="/medicine/setting" element={<AppointmentSetup />} /> {/* Reused for setting */}
-        <Route path="/medicine/record" element={<Meds />} /> {/* Reused list for now */}
+        <Route path="/medicine/record" element={<Records />} />
         <Route path="/medicine/detail/:id" element={<MedsDetail />} />
         
-        <Route path="/documents" element={<Records />} />
-        <Route path="/documents/upload" element={<Upload />} />
-        <Route path="/documents/timeline" element={<Records />} />
+        <Route path="/documents" element={<Documents />} />
+        <Route path="/records" element={<Records />} />
+        <Route path="/documents/upload" element={<Documents />} />
+        <Route path="/documents/timeline" element={<Documents />} />
         <Route path="/documents/detail/:id" element={<RecordDetail />} />
         
         <Route path="/health/record/add" element={<HealthRecordAdd />} />

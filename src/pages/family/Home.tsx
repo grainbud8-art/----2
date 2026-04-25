@@ -15,7 +15,7 @@ export default function FamilyHome() {
                 <User className="w-12 h-12 text-on-surface" fill="currentColor" strokeWidth={0} />
                 </div>
                 <div>
-                <h2 className="text-2xl font-black text-on-surface">张大爷 (父亲)</h2>
+                <h2 className="text-2xl font-black text-on-surface">对对 (父亲)</h2>
                 <div className="mt-1 flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(37,177,131,0.6)]"></div>
                     <span className="text-base font-black text-primary tracking-wider">

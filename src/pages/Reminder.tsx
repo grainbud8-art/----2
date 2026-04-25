@@ -111,7 +111,7 @@ export default function Reminder() {
         
         <button className="w-full h-24 bg-surface-container text-on-surface rounded-3xl font-extrabold text-2xl flex items-center justify-center gap-4 border-4 border-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all">
           <Phone className="w-10 h-10 text-primary" />
-          一键呼叫子女
+          呼叫子女
         </button>
       </div>
     </div>
