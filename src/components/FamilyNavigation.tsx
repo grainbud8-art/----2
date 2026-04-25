@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Settings, BarChart3, User } from 'lucide-react';
+import { Home, Users, BarChart3, User } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 export default function FamilyNavigation() {
@@ -7,9 +7,9 @@ export default function FamilyNavigation() {
   const location = useLocation();
 
   const tabs = [
-    { name: '监控', icon: LayoutDashboard, path: '/home/family' },
-    { name: '管理', icon: Settings, path: '/family/medicine/inventory' },
-    { name: '报表', icon: BarChart3, path: '/family/reports' },
+    { name: '首页', icon: Home, path: '/home/family' },
+    { name: '管理', icon: Users, path: '/family/medicine/inventory' },
+    { name: '监护', icon: BarChart3, path: '/family/reports' },
     { name: '我的', icon: User, path: '/family/profile' },
   ];
 

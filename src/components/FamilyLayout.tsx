@@ -98,25 +98,28 @@ export default function FamilyLayout({ children, title, showBack = false }: Fami
       </AnimatePresence>
 
       {/* Family Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200">
-        <div className="max-w-7xl mx-auto h-16 px-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-lg">
+        <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between">
+          <div className="flex items-center gap-4">
             {showBack && (
-              <button onClick={() => navigate(-1)} className="p-2 -ml-2 hover:bg-slate-100 rounded-full transition-colors">
-                <ArrowLeft className="w-5 h-5" />
+              <button 
+                onClick={() => navigate(-1)} 
+                className="p-2 -ml-2 text-white hover:bg-white/10 rounded-full transition-colors active:scale-90"
+              >
+                <ArrowLeft className="w-6 h-6" />
               </button>
             )}
-            <h1 className="text-lg font-black tracking-tight text-secondary">
+            <h1 className="text-xl font-black tracking-[0.1em] text-white">
               {title}
             </h1>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <button 
               onClick={() => window.dispatchEvent(new CustomEvent('show-demo-reminder'))}
-              className="p-2 relative hover:bg-slate-100 rounded-full transition-colors"
+              className="p-2 relative text-white hover:bg-white/10 rounded-full transition-colors active:scale-95"
             >
-              <Bell className="w-5 h-5 text-slate-600" />
-              <span className="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+              <Bell className="w-6 h-6" />
+              <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-primary"></span>
             </button>
           </div>
         </div>
